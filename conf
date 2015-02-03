@@ -1,0 +1,9 @@
+# Switches
+LIGHT_SW=29
+WATER_SW=
+
+# Sensors
+WATER_RD=
+TEMP_RD=
+MOIST_RD=
+
