@@ -18,25 +18,11 @@ if ! which gpio >/dev/null 2>&1; then
 fi
 
 cd /opt/greenhouse
+. functions
 
+command="$1"
+shift
+echo gh_"$command" "$@"
 
-function lights {
-    case "$0" in
-	on )
-	    gpio mode "$LIGHT_SW" out
-	    gpio write "$LIGHT_SW" 1
-	    ;;
-	off )
-	    gpio mode "$LIGHT_SW" out
-	    gpio write "$LIGHT_SW" 0
-	    ;;
-	read )
-	    gpio mode "$LIGHT_SW" in
-	    gpio read "$LIGHT_SW"
-	    ;;
-	* )
-	    echo "Error"
-	    exit 1
-	    ;;
-    esac
-}
+exit "$?"
+
