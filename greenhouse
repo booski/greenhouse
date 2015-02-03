@@ -22,7 +22,7 @@ cd /opt/greenhouse
 
 command="$1"
 shift
-echo gh_"$command" "$@"
+gh_"$command" "$@"
 
 exit "$?"
 

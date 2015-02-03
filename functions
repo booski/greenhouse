@@ -1,19 +1,22 @@
 #!/bin/bash
 
 function gh_lights {
-    
-    case "$0" in
+    case "$1" in
 	on )
-	    gpio mode "$LIGHT_SW" out
-	    gpio write "$LIGHT_SW" 1
-	    ;;
-	off )
 	    gpio mode "$LIGHT_SW" out
 	    gpio write "$LIGHT_SW" 0
 	    ;;
-	read )
+	off )
+	    gpio mode "$LIGHT_SW" out
+	    gpio write "$LIGHT_SW" 1
+	    ;;
+	state )
 	    gpio mode "$LIGHT_SW" in
-	    gpio read "$LIGHT_SW"
+	    if [ "1" = $(gpio read "$LIGHT_SW") ]; then
+		echo "off"
+	    else
+		echo "on"
+	    fi
 	    ;;
 	* )
 	    echo "Error"
