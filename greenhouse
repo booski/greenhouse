@@ -11,6 +11,8 @@ MOIST_RD=
 
 set -e
 
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
 if ! which gpio >/dev/null 2>&1; then
     echo "gpio program missing."
     echo "Please install from http://wiringpi.com."
