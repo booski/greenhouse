@@ -20,8 +20,7 @@ function gh_lights {
 	    ;;
 	* )
 	    echo "Error"
-	    exit 1
+	    return 1
 	    ;;
     esac
 }
-

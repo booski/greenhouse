@@ -1,14 +1,4 @@
 #!/bin/bash
-
-# Switches
-LIGHT_SW=29
-WATER_SW=
-
-# Sensors
-WATER_RD=
-TEMP_RD=
-MOIST_RD=
-
 set -e
 
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
@@ -20,7 +10,8 @@ if ! which gpio >/dev/null 2>&1; then
 fi
 
 cd /opt/greenhouse
-. functions
+. config
+. functions.d/*
 
 command="$1"
 shift
